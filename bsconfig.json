@@ -1,7 +1,7 @@
 {
-  "name": "bs-declaredom",
+  "name": "rescript-declaredom",
   "version": "2.22.0",
-  "namespace": true,
+  "namespace": "BsDeclaredom",
   "sources": [{
     "dir" : "src",
     "subdirs": true
