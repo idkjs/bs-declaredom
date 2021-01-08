@@ -1,13 +1,12 @@
-open BsTape;
 open Test;
 open Css_Properties;
 
-test(~name="css property - align-content") @@
+test(~name="css property - align-content", _) @@
 (
   t => {
     {
       let equal = (a, b, t) =>
-        t |> T.equal(a |> AlignContent.make |> Css_Property.show, b);
+        t |> T.equal(a |> AlignContent.make |> Css_Property.show, b, _);
 
       t |> equal(`inherit_, "inherit");
       t |> equal(`initial, "initial");
@@ -20,12 +19,12 @@ test(~name="css property - align-content") @@
       t |> T.end_;
     };
 
-    test(~name="css property - align-items") @@
+    test(~name="css property - align-items", _) @@
     (
       t => {
         {
           let equal = (a, b, t) =>
-            t |> T.equal(a |> AlignItems.make |> Css_Property.show, b);
+            t |> T.equal(a |> AlignItems.make |> Css_Property.show, b, _);
 
           t |> equal(`inherit_, "inherit");
           t |> equal(`initial, "initial");
@@ -38,12 +37,12 @@ test(~name="css property - align-content") @@
           t |> T.end_;
         };
 
-        test(~name="css property - align-self") @@
+        test(~name="css property - align-self", _) @@
         (
           t => {
             {
               let equal = (a, b, t) =>
-                t |> T.equal(a |> AlignSelf.make |> Css_Property.show, b);
+                t |> T.equal(a |> AlignSelf.make |> Css_Property.show, b, _);
 
               t |> equal(`inherit_, "inherit");
               t |> equal(`initial, "initial");
@@ -57,7 +56,7 @@ test(~name="css property - align-content") @@
               t |> T.end_;
             };
 
-            test(~name="css property - animation-name") @@
+            test(~name="css property - animation-name", _) @@
             (
               t => {
                 {
@@ -66,6 +65,7 @@ test(~name="css property - align-content") @@
                     |> T.equal(
                          a |> AnimationName.make |> Css_Property.show,
                          b,
+                         _,
                        );
 
                   t |> equal(`inherit_, "inherit");
@@ -75,7 +75,7 @@ test(~name="css property - align-content") @@
                   t |> T.end_;
                 };
 
-                test(~name="css property - animation-duration") @@
+                test(~name="css property - animation-duration", _) @@
                 (
                   t => {
                     {
@@ -84,6 +84,7 @@ test(~name="css property - align-content") @@
                         |> T.equal(
                              a |> AnimationDuration.make |> Css_Property.show,
                              b,
+                             _,
                            );
 
                       t |> equal(`inherit_, "inherit");
@@ -94,7 +95,7 @@ test(~name="css property - align-content") @@
                       t |> T.end_;
                     };
 
-                    test(~name="css property - animation-timing-function") @@
+                    test(~name="css property - animation-timing-function", _) @@
                     (
                       t => {
                         {
@@ -105,6 +106,7 @@ test(~name="css property - align-content") @@
                                  |> AnimationTimingFunction.make
                                  |> Css_Property.show,
                                  b,
+                                 _,
                                );
 
                           t |> equal(`linear, "linear");
@@ -122,6 +124,7 @@ test(~name="css property - align-content") @@
 
                         test(
                           ~name="css property - animation-iteration-count",
+                          _,
                         ) @@
                         (
                           t => {
@@ -133,6 +136,7 @@ test(~name="css property - align-content") @@
                                      |> AnimationIterationCount.make
                                      |> Css_Property.show,
                                      b,
+                                     _,
                                    );
 
                               t |> equal(`inherit_, "inherit");
@@ -143,7 +147,10 @@ test(~name="css property - align-content") @@
                               t |> T.end_;
                             };
 
-                            test(~name="css property - animation-direction") @@
+                            test(
+                              ~name="css property - animation-direction",
+                              _,
+                            ) @@
                             (
                               t => {
                                 {
@@ -154,6 +161,7 @@ test(~name="css property - align-content") @@
                                          |> AnimationDirection.make
                                          |> Css_Property.show,
                                          b,
+                                         _,
                                        );
 
                                   t |> equal(`inherit_, "inherit");
@@ -172,6 +180,7 @@ test(~name="css property - align-content") @@
 
                                 test(
                                   ~name="css property - animation-play-state",
+                                  _,
                                 ) @@
                                 (
                                   t => {
@@ -183,6 +192,7 @@ test(~name="css property - align-content") @@
                                              |> AnimationPlayState.make
                                              |> Css_Property.show,
                                              b,
+                                             _,
                                            );
 
                                       t |> equal(`inherit_, "inherit");
@@ -195,6 +205,7 @@ test(~name="css property - align-content") @@
 
                                     test(
                                       ~name="css property - animation-delay",
+                                      _,
                                     ) @@
                                     (
                                       t => {
@@ -207,6 +218,7 @@ test(~name="css property - align-content") @@
                                                  |> AnimationDelay.make
                                                  |> Css_Property.show,
                                                  b,
+                                                 _,
                                                );
 
                                           t |> equal(`inherit_, "inherit");
@@ -225,6 +237,7 @@ test(~name="css property - align-content") @@
                                         test(
                                           ~name=
                                             "css property - animation-fill-mode",
+                                          _,
                                         ) @@
                                         (
                                           t => {
@@ -236,6 +249,7 @@ test(~name="css property - align-content") @@
                                                      |> AnimationFillMode.make
                                                      |> Css_Property.show,
                                                      b,
+                                                     _,
                                                    );
 
                                               t |> equal(`inherit_, "inherit");
@@ -255,6 +269,7 @@ test(~name="css property - align-content") @@
 
                                             test(
                                               ~name="css property - animation",
+                                              _,
                                             ) @@
                                             (
                                               t => {
@@ -265,6 +280,7 @@ test(~name="css property - align-content") @@
                                                     |> T.equal(
                                                          a |> Css_Property.show,
                                                          b,
+                                                         _,
                                                        );
 
                                                   t
@@ -300,6 +316,7 @@ test(~name="css property - align-content") @@
                                                 test(
                                                   ~name=
                                                     "css property - azimuth",
+                                                  _,
                                                 ) @@
                                                 (
                                                   t => {
@@ -312,6 +329,7 @@ test(~name="css property - align-content") @@
                                                              |> Azimuth.make
                                                              |> Css_Property.show,
                                                              b,
+                                                             _,
                                                            );
                                                       t
                                                       |> equal(
@@ -419,6 +437,7 @@ test(~name="css property - align-content") @@
                                                     test(
                                                       ~name=
                                                         "css property - background-attachment",
+                                                      _,
                                                     ) @@
                                                     (
                                                       t => {
@@ -430,6 +449,7 @@ test(~name="css property - align-content") @@
                                                                  |> BackgroundAttachment.make
                                                                  |> Css_Property.show,
                                                                  b,
+                                                                 _,
                                                                );
 
                                                           t
@@ -463,6 +483,7 @@ test(~name="css property - align-content") @@
                                                         test(
                                                           ~name=
                                                             "css property - background-image",
+                                                          _,
                                                         ) @@
                                                         (
                                                           t => {
@@ -475,6 +496,7 @@ test(~name="css property - align-content") @@
                                                                     |> BackgroundColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                    );
 
                                                               t
@@ -517,6 +539,7 @@ test(~name="css property - align-content") @@
                                                             test(
                                                               ~name=
                                                                 "css property - background-image",
+                                                              _,
                                                             ) @@
                                                             (
                                                               t => {
@@ -531,6 +554,7 @@ test(~name="css property - align-content") @@
                                                                     |> BackgroundImage.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                   t
@@ -571,6 +595,7 @@ test(~name="css property - align-content") @@
                                                                 test(
                                                                   ~name=
                                                                     "css property - background-position",
+                                                                  _,
                                                                 ) @@
                                                                 (
                                                                   t => {
@@ -585,6 +610,7 @@ test(~name="css property - align-content") @@
                                                                     |> BackgroundPosition.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -727,6 +753,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - background-repeat",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -741,6 +768,7 @@ test(~name="css property - align-content") @@
                                                                     |> BackgroundRepeat.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -791,6 +819,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - background-size",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -805,6 +834,7 @@ test(~name="css property - align-content") @@
                                                                     |> BackgroundSize.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -868,11 +898,13 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - background",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
                                                                     {
                                                                     let background = Background.make
+
                                                                     and
                                                                     equal =
                                                                     (a, b, t) =>
@@ -882,6 +914,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -928,6 +961,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-collapse",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -942,6 +976,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderCollapse.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -980,6 +1015,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -994,6 +1030,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1032,6 +1069,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1047,6 +1085,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1107,6 +1146,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-spacing",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1122,6 +1162,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderSpacing.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1164,6 +1205,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1178,6 +1220,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1222,6 +1265,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-top",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1235,6 +1279,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1271,6 +1316,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-bottom",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1284,6 +1330,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1320,6 +1367,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-left",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1333,6 +1381,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1369,6 +1418,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-right",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1382,6 +1432,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1418,6 +1469,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1431,6 +1483,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1467,6 +1520,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-top-color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1481,6 +1535,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderTopColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1523,6 +1578,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-right-color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1537,6 +1593,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderRightColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1579,6 +1636,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-bottom-color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1593,6 +1651,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderBottomColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1635,6 +1694,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-left-color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1649,6 +1709,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderLeftColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1691,6 +1752,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-top-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1705,6 +1767,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderTopStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1749,6 +1812,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-right-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1763,6 +1827,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderRightStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1807,6 +1872,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-bottom-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1821,6 +1887,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderBottomStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1865,6 +1932,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-left-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1879,6 +1947,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderLeftStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1923,6 +1992,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-top-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1938,6 +2008,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderTopWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -1998,6 +2069,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-right-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2013,6 +2085,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderRightWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2073,6 +2146,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-bottom-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2088,6 +2162,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderBottomWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2148,6 +2223,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-left-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2163,6 +2239,7 @@ test(~name="css property - align-content") @@
                                                                     |> BorderLeftWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2223,6 +2300,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - border-radius",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2238,7 +2316,9 @@ test(~name="css property - align-content") @@
                                                                     |> BorderRadius.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -2248,6 +2328,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2317,6 +2398,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - bottom",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2332,6 +2414,7 @@ test(~name="css property - align-content") @@
                                                                     |> Bottom.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2384,6 +2467,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - caption-side",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2398,6 +2482,7 @@ test(~name="css property - align-content") @@
                                                                     |> CaptionSide.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2436,6 +2521,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - clear",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2450,6 +2536,7 @@ test(~name="css property - align-content") @@
                                                                     |> Clear.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2500,6 +2587,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - clip",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2515,6 +2603,7 @@ test(~name="css property - align-content") @@
                                                                     |> Clip.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2567,6 +2656,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2581,6 +2671,7 @@ test(~name="css property - align-content") @@
                                                                     |> Color.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2623,6 +2714,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - cue-after",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2637,6 +2729,7 @@ test(~name="css property - align-content") @@
                                                                     |> CueAfter.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2677,6 +2770,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - cue-before",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2691,6 +2785,7 @@ test(~name="css property - align-content") @@
                                                                     |> CueBefore.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2731,6 +2826,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - cue",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2745,6 +2841,7 @@ test(~name="css property - align-content") @@
                                                                     |> Cue.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2791,6 +2888,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - cursor",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2805,6 +2903,7 @@ test(~name="css property - align-content") @@
                                                                     |> Cursor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -2962,6 +3061,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - direction",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -2976,6 +3076,7 @@ test(~name="css property - align-content") @@
                                                                     |> Direction.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3014,6 +3115,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - elevation",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3029,6 +3131,7 @@ test(~name="css property - align-content") @@
                                                                     |> Elevation.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3119,6 +3222,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - empty-cells",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3133,6 +3237,7 @@ test(~name="css property - align-content") @@
                                                                     |> EmptyCells.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3171,6 +3276,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3185,7 +3291,9 @@ test(~name="css property - align-content") @@
                                                                     |> Flex.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -3195,6 +3303,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3267,6 +3376,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex-basis",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3282,6 +3392,7 @@ test(~name="css property - align-content") @@
                                                                     |> FlexBasis.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3334,6 +3445,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex-direction",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3348,6 +3460,7 @@ test(~name="css property - align-content") @@
                                                                     |> FlexDirection.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3398,6 +3511,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex-grow",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3412,6 +3526,7 @@ test(~name="css property - align-content") @@
                                                                     |> FlexGrow.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3432,6 +3547,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex-wrap",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3446,6 +3562,7 @@ test(~name="css property - align-content") @@
                                                                     |> FlexWrap.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3490,6 +3607,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex-flow",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3504,6 +3622,7 @@ test(~name="css property - align-content") @@
                                                                     |> FlexFlow.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3566,6 +3685,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - flex-shrink",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3580,6 +3700,7 @@ test(~name="css property - align-content") @@
                                                                     |> FlexShrink.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3606,6 +3727,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - float",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3620,6 +3742,7 @@ test(~name="css property - align-content") @@
                                                                     |> Float.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3664,6 +3787,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - font-family",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3678,6 +3802,7 @@ test(~name="css property - align-content") @@
                                                                     |> FontFamily.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3753,6 +3878,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - font-size",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3768,6 +3894,7 @@ test(~name="css property - align-content") @@
                                                                     |> FontSize.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3880,6 +4007,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - font-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3894,6 +4022,7 @@ test(~name="css property - align-content") @@
                                                                     |> FontStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3938,6 +4067,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - font-variant",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -3952,6 +4082,7 @@ test(~name="css property - align-content") @@
                                                                     |> FontVariant.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -3990,6 +4121,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - font-weight",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4004,6 +4136,7 @@ test(~name="css property - align-content") @@
                                                                     |> FontWeight.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4108,6 +4241,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - font",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4122,7 +4256,9 @@ test(~name="css property - align-content") @@
                                                                     |> Font.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -4132,6 +4268,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4220,6 +4357,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - height",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4235,6 +4373,7 @@ test(~name="css property - align-content") @@
                                                                     |> Height.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4287,6 +4426,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - justify-content",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4301,6 +4441,7 @@ test(~name="css property - align-content") @@
                                                                     |> JustifyContent.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4357,6 +4498,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - left",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4372,6 +4514,7 @@ test(~name="css property - align-content") @@
                                                                     |> Left.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4424,6 +4567,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - letter-spacing",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4439,6 +4583,7 @@ test(~name="css property - align-content") @@
                                                                     |> LetterSpacing.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4481,6 +4626,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - line-height",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4496,6 +4642,7 @@ test(~name="css property - align-content") @@
                                                                     |> LineHeight.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4548,6 +4695,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - list-style-image",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4562,6 +4710,7 @@ test(~name="css property - align-content") @@
                                                                     |> ListStyleImage.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4602,6 +4751,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - list-style-position",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4616,6 +4766,7 @@ test(~name="css property - align-content") @@
                                                                     |> ListStylePosition.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4654,6 +4805,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - list-style-type",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4668,6 +4820,7 @@ test(~name="css property - align-content") @@
                                                                     |> ListStyleType.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4784,6 +4937,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - list-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4798,7 +4952,9 @@ test(~name="css property - align-content") @@
                                                                     |> ListStyle.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -4808,6 +4964,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4873,6 +5030,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - margin",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4888,7 +5046,9 @@ test(~name="css property - align-content") @@
                                                                     |> Margin.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -4898,6 +5058,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -4967,6 +5128,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - margin-top",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -4982,6 +5144,7 @@ test(~name="css property - align-content") @@
                                                                     |> MarginTop.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5034,6 +5197,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - margin-right",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5049,6 +5213,7 @@ test(~name="css property - align-content") @@
                                                                     |> MarginRight.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5101,6 +5266,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - margin-bottom",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5116,6 +5282,7 @@ test(~name="css property - align-content") @@
                                                                     |> MarginBottom.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5168,6 +5335,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - margin-left",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5183,6 +5351,7 @@ test(~name="css property - align-content") @@
                                                                     |> MarginLeft.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5235,6 +5404,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - max-height",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5250,6 +5420,7 @@ test(~name="css property - align-content") @@
                                                                     |> MaxHeight.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5302,6 +5473,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - max-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5317,6 +5489,7 @@ test(~name="css property - align-content") @@
                                                                     |> MaxWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5369,6 +5542,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - min-height",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5384,6 +5558,7 @@ test(~name="css property - align-content") @@
                                                                     |> MinHeight.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5436,6 +5611,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - min-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5451,6 +5627,7 @@ test(~name="css property - align-content") @@
                                                                     |> MinWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5503,6 +5680,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - opacity",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5517,6 +5695,7 @@ test(~name="css property - align-content") @@
                                                                     |> Opacity.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5537,6 +5716,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - order",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5551,6 +5731,7 @@ test(~name="css property - align-content") @@
                                                                     |> Order.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5571,6 +5752,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - orphans",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5585,6 +5767,7 @@ test(~name="css property - align-content") @@
                                                                     |> Orphans.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5617,6 +5800,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - outline-color",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5631,6 +5815,7 @@ test(~name="css property - align-content") @@
                                                                     |> OutlineColor.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5679,6 +5864,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - outline-style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5693,6 +5879,7 @@ test(~name="css property - align-content") @@
                                                                     |> OutlineStyle.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5737,6 +5924,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - outline-width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5751,6 +5939,7 @@ test(~name="css property - align-content") @@
                                                                     |> OutlineWidth.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5801,6 +5990,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - outline",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5815,7 +6005,9 @@ test(~name="css property - align-content") @@
                                                                     |> Outline.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -5825,6 +6017,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5868,6 +6061,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - overflow",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5882,6 +6076,7 @@ test(~name="css property - align-content") @@
                                                                     |> Overflow.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5932,6 +6127,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - padding-top",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -5947,6 +6143,7 @@ test(~name="css property - align-content") @@
                                                                     |> PaddingTop.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -5999,6 +6196,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - padding-right",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6014,6 +6212,7 @@ test(~name="css property - align-content") @@
                                                                     |> PaddingRight.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6066,6 +6265,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - padding-bottom",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6081,6 +6281,7 @@ test(~name="css property - align-content") @@
                                                                     |> PaddingBottom.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6133,6 +6334,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - padding-left",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6148,6 +6350,7 @@ test(~name="css property - align-content") @@
                                                                     |> PaddingLeft.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6200,6 +6403,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - padding",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6215,7 +6419,9 @@ test(~name="css property - align-content") @@
                                                                     |> Padding.make_value
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     )
+
                                                                     and
                                                                     equal' =
                                                                     (a, b, t) =>
@@ -6225,6 +6431,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6292,6 +6499,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - page-break-after",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6306,6 +6514,7 @@ test(~name="css property - align-content") @@
                                                                     |> PageBreakAfter.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6362,6 +6571,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - page-break-before",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6376,6 +6586,7 @@ test(~name="css property - align-content") @@
                                                                     |> PageBreakBefore.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6432,6 +6643,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - page-break-inside",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6446,6 +6658,7 @@ test(~name="css property - align-content") @@
                                                                     |> PageBreakInside.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6484,6 +6697,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - pause-after",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6499,6 +6713,7 @@ test(~name="css property - align-content") @@
                                                                     |> PauseAfter.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6547,6 +6762,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - pause-before",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6562,6 +6778,7 @@ test(~name="css property - align-content") @@
                                                                     |> PauseBefore.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6610,6 +6827,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - pause",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6625,6 +6843,7 @@ test(~name="css property - align-content") @@
                                                                     |> Pause.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6673,6 +6892,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - pitch-range",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6687,6 +6907,7 @@ test(~name="css property - align-content") @@
                                                                     |> PitchRange.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6721,6 +6942,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - pitch",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6736,6 +6958,7 @@ test(~name="css property - align-content") @@
                                                                     |> Pitch.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6808,6 +7031,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - play-during",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6822,6 +7046,7 @@ test(~name="css property - align-content") @@
                                                                     |> PlayDuring.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6879,6 +7104,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - richness",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6893,6 +7119,7 @@ test(~name="css property - align-content") @@
                                                                     |> Richness.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6927,6 +7154,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - size",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -6942,6 +7170,7 @@ test(~name="css property - align-content") @@
                                                                     |> Size.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -6998,6 +7227,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - speak-header",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7012,6 +7242,7 @@ test(~name="css property - align-content") @@
                                                                     |> SpeakHeader.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7050,6 +7281,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - speak-numeral",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7064,6 +7296,7 @@ test(~name="css property - align-content") @@
                                                                     |> SpeakNumeral.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7102,6 +7335,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - speak-punctuation",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7116,6 +7350,7 @@ test(~name="css property - align-content") @@
                                                                     |> SpeakPunctuation.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7154,6 +7389,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - speak",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7168,6 +7404,7 @@ test(~name="css property - align-content") @@
                                                                     |> Speak.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7212,6 +7449,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - speech-rate",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7226,6 +7464,7 @@ test(~name="css property - align-content") @@
                                                                     |> SpeechRate.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7302,6 +7541,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - stress",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7316,6 +7556,7 @@ test(~name="css property - align-content") @@
                                                                     |> Stress.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7350,6 +7591,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - table-layout",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7364,6 +7606,7 @@ test(~name="css property - align-content") @@
                                                                     |> TableLayout.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7402,6 +7645,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - text-align",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7416,6 +7660,7 @@ test(~name="css property - align-content") @@
                                                                     |> TextAlign.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
                                                                     t
                                                                     |>
@@ -7465,6 +7710,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - text-decoration",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7479,6 +7725,7 @@ test(~name="css property - align-content") @@
                                                                     |> TextDecoration.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7535,6 +7782,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - text-indent",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7550,6 +7798,7 @@ test(~name="css property - align-content") @@
                                                                     |> TextIndent.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7602,6 +7851,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - text-transform",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7616,6 +7866,7 @@ test(~name="css property - align-content") @@
                                                                     |> TextTransform.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7666,6 +7917,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - transition-delay",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7681,6 +7933,7 @@ test(~name="css property - align-content") @@
                                                                     |> TransitionDelay.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7711,6 +7964,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - transition-duration",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7726,6 +7980,7 @@ test(~name="css property - align-content") @@
                                                                     |> TransitionDuration.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7756,6 +8011,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - transition-property",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7770,6 +8026,7 @@ test(~name="css property - align-content") @@
                                                                     |> TransitionProperty.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7790,6 +8047,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - transition-timing-function",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7804,6 +8062,7 @@ test(~name="css property - align-content") @@
                                                                     |> TransitionTimingFunction.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7853,11 +8112,13 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - transition",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
                                                                     {
                                                                     let transition = Transition.make
+
                                                                     and
                                                                     equal =
                                                                     (a, b, t) =>
@@ -7867,6 +8128,7 @@ test(~name="css property - align-content") @@
                                                                     a
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7914,6 +8176,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - unicode-bidi",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7928,6 +8191,7 @@ test(~name="css property - align-content") @@
                                                                     |> UnicodeBidi.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -7972,6 +8236,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - user-select",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -7986,6 +8251,7 @@ test(~name="css property - align-content") @@
                                                                     |> UserSelect.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8042,6 +8308,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - vertical-align",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8057,6 +8324,7 @@ test(~name="css property - align-content") @@
                                                                     |> VerticalAlign.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8157,6 +8425,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - visibility",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8171,6 +8440,7 @@ test(~name="css property - align-content") @@
                                                                     |> Visibility.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8215,6 +8485,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - voice-family",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8229,6 +8500,7 @@ test(~name="css property - align-content") @@
                                                                     |> VoiceFamily.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8289,6 +8561,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - volume",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8303,6 +8576,7 @@ test(~name="css property - align-content") @@
                                                                     |> Volume.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8381,6 +8655,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - word-break",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8395,6 +8670,7 @@ test(~name="css property - align-content") @@
                                                                     |> WordBreak.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8445,6 +8721,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - word-spacing",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8459,6 +8736,7 @@ test(~name="css property - align-content") @@
                                                                     |> WordSpacing.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8497,6 +8775,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - white-space",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8511,6 +8790,7 @@ test(~name="css property - align-content") @@
                                                                     |> WhiteSpace.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8567,6 +8847,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - widows",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8581,6 +8862,7 @@ test(~name="css property - align-content") @@
                                                                     |> Widows.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8613,6 +8895,7 @@ test(~name="css property - align-content") @@
                                                                     test(
                                                                     ~name=
                                                                     "css property - width",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -8627,6 +8910,7 @@ test(~name="css property - align-content") @@
                                                                     |> Width.make
                                                                     |> Css_Property.show,
                                                                     b,
+                                                                    _,
                                                                     );
 
                                                                     t
@@ -8952,12 +9236,12 @@ test(~name="css property - align-content") @@
 );
 
 module Ruby = {
-  test(~name="css property - ruby-align") @@
+  test(~name="css property - ruby-align", _) @@
   (
     t => {
       {
         let equal = (a, b, t) =>
-          t |> T.equal(a |> Ruby.RubyAlign.make |> Css_Property.show, b);
+          t |> T.equal(a |> Ruby.RubyAlign.make |> Css_Property.show, b, _);
 
         t |> equal(`inherit_, "inherit");
         t |> equal(`initial, "initial");
@@ -8969,12 +9253,13 @@ module Ruby = {
         t |> T.end_;
       };
 
-      test(~name="css property - ruby-merge") @@
+      test(~name="css property - ruby-merge", _) @@
       (
         t => {
           {
             let equal = (a, b, t) =>
-              t |> T.equal(a |> Ruby.RubyMerge.make |> Css_Property.show, b);
+              t
+              |> T.equal(a |> Ruby.RubyMerge.make |> Css_Property.show, b, _);
 
             t |> equal(`inherit_, "inherit");
             t |> equal(`initial, "initial");
@@ -8985,7 +9270,7 @@ module Ruby = {
             t |> T.end_;
           };
 
-          test(~name="css property - ruby-position") @@
+          test(~name="css property - ruby-position", _) @@
           (
             t => {
               let equal = (a, b, t) =>
@@ -8993,6 +9278,7 @@ module Ruby = {
                 |> T.equal(
                      a |> Ruby.RubyPosition.make |> Css_Property.show,
                      b,
+                     _,
                    );
 
               t |> equal(`inherit_, "inherit");

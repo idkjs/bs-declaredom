@@ -1,4 +1,3 @@
-open BsTape;
 open Test;
 open! Html;
 
@@ -12,7 +11,7 @@ let to_element = x => x |> Html_Node.to_node |> ofNode |> Js.Option.getExn;
 let tag_name = x =>
   x->Html_Node.to_node->ofNode->Js.Option.getExn->Webapi.Dom.Element.tagName;
 
-test(~name="node - a") @@
+test(~name="node - a", _) @@
 (
   t => {
     {
@@ -30,16 +29,19 @@ test(~name="node - a") @@
           [||],
         );
 
-      t |> T.equal(tag_name(element), "A");
+      t |> T.equal(tag_name(element), "A", _);
       t
-      |> T.equal(Html_Node.show(element)) @@
-      "<a href=\"http://www.w3.org\" target=\"_blank\" download=\"\" "
-      ++ "rel=\"nofollow\" rev=\"bookmark\" hreflang=\"en-US\" type=\"html\" "
-      ++ "referrerpolicy=\"no-referrer\" aria-label=\"foo\"></a>";
+      |> T.equal(
+           Html_Node.show(element),
+           "<a href=\"http://www.w3.org\" target=\"_blank\" download=\"\" "
+           ++ "rel=\"nofollow\" rev=\"bookmark\" hreflang=\"en-US\" type=\"html\" "
+           ++ "referrerpolicy=\"no-referrer\" aria-label=\"foo\"></a>",
+           _,
+         );
       t |> T.end_;
     };
 
-    test(~name="node - area") @@
+    test(~name="node - area", _) @@
     (
       t => {
         {
@@ -59,17 +61,21 @@ test(~name="node - a") @@
               (),
             );
 
-          t |> T.equal(tag_name(element), "AREA");
+          t |> T.equal(tag_name(element), "AREA", _);
           t
-          |> T.equal(Html_Node.show(element)) @@
-          "<area alt=\"foobar\" coords=\"123,456\" download=\"\" "
-          ++ "href=\"http://www.w3.org\" hreflang=\"en-US\" rel=\"nofollow\" "
-          ++ "shape=\"circle\" target=\"_blank\" type=\"html\" "
-          ++ "referrerpolicy=\"no-referrer\" aria-label=\"foo\">";
+          |> T.equal(
+               Html_Node.show(element),
+               "<area alt=\"foobar\" coords=\"123,456\" download=\"\" "
+               ++ "href=\"http://www.w3.org\" hreflang=\"en-US\" rel=\"nofollow\" "
+               ++ "shape=\"circle\" target=\"_blank\" type=\"html\" "
+               ++ "referrerpolicy=\"no-referrer\" aria-label=\"foo\">",
+               _,
+             );
+
           t |> T.end_;
         };
 
-        test(~name="node - audio") @@
+        test(~name="node - audio", _) @@
         (
           t => {
             {
@@ -86,29 +92,37 @@ test(~name="node - a") @@
                   [||],
                 );
 
-              t |> T.equal(tag_name(element), "AUDIO");
+              t |> T.equal(tag_name(element), "AUDIO", _);
               t
-              |> T.equal(Html_Node.show(element)) @@
-              "<audio src=\"foo.wav\" crossorigin=\"anonymous\" preload=\"metadata\" "
-              ++ "autoplay=\"\" loop=\"\" muted=\"\" controls=\"\" role=\"application\" "
-              ++ "aria-label=\"foo\"></audio>";
+              |> T.equal(
+                   Html_Node.show(element),
+                   "<audio src=\"foo.wav\" crossorigin=\"anonymous\" preload=\"metadata\" "
+                   ++ "autoplay=\"\" loop=\"\" muted=\"\" controls=\"\" role=\"application\" "
+                   ++ "aria-label=\"foo\"></audio>",
+                   _,
+                 );
+
               t |> T.end_;
             };
 
-            test(~name="node - blockquote") @@
+            test(~name="node - blockquote", _) @@
             (
               t => {
                 {
                   let element = blockquote(~cite="foo", [||]);
 
-                  t |> T.equal(tag_name(element), "BLOCKQUOTE");
+                  t |> T.equal(tag_name(element), "BLOCKQUOTE", _);
                   t
-                  |> T.equal(Html_Node.show(element)) @@
-                  "<blockquote cite=\"foo\"></blockquote>";
+                  |> T.equal(
+                       Html_Node.show(element),
+                       "<blockquote cite=\"foo\"></blockquote>",
+                       _,
+                     );
+
                   t |> T.end_;
                 };
 
-                test(~name="node - button") @@
+                test(~name="node - button", _) @@
                 (
                   t => {
                     {
@@ -129,56 +143,69 @@ test(~name="node - a") @@
                           [||],
                         );
 
-                      t |> T.equal(tag_name(element), "BUTTON");
+                      t |> T.equal(tag_name(element), "BUTTON", _);
                       t
-                      |> T.equal(Html_Node.show(element)) @@
-                      "<button autofocus=\"\" disabled=\"\" form=\"foo\" formaction=\"foo.com\" "
-                      ++ "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "
-                      ++ "formnovalidate=\"\" formtarget=\"_blank\" formelements=\"bar\" "
-                      ++ "name=\"baz\" type=\"submit\" value=\"qux\"></button>";
+                      |> T.equal(
+                           Html_Node.show(element),
+                           "<button autofocus=\"\" disabled=\"\" form=\"foo\" formaction=\"foo.com\" "
+                           ++ "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "
+                           ++ "formnovalidate=\"\" formtarget=\"_blank\" formelements=\"bar\" "
+                           ++ "name=\"baz\" type=\"submit\" value=\"qux\"></button>",
+                           _,
+                         );
+
                       t |> T.end_;
                     };
 
-                    test(~name="node - canvas") @@
+                    test(~name="node - canvas", _) @@
                     (
                       t => {
                         {
                           let element = canvas(~width=800, ~height=600, [||]);
 
-                          t |> T.equal(tag_name(element), "CANVAS");
+                          t |> T.equal(tag_name(element), "CANVAS", _);
                           t
-                          |> T.equal(Html_Node.show(element)) @@
-                          "<canvas width=\"800\" height=\"600\"></canvas>";
+                          |> T.equal(
+                               Html_Node.show(element),
+                               "<canvas width=\"800\" height=\"600\"></canvas>",
+                               _,
+                             );
                           t |> T.end_;
                         };
 
-                        test(~name="node - colgroup") @@
+                        test(~name="node - colgroup", _) @@
                         (
                           t => {
                             {
                               let element = colgroup(~span=3, [||]);
 
-                              t |> T.equal(tag_name(element), "COLGROUP");
+                              t |> T.equal(tag_name(element), "COLGROUP", _);
                               t
-                              |> T.equal(Html_Node.show(element)) @@
-                              "<colgroup span=\"3\"></colgroup>";
+                              |> T.equal(
+                                   Html_Node.show(element),
+                                   "<colgroup span=\"3\"></colgroup>",
+                                   _,
+                                 );
                               t |> T.end_;
                             };
 
-                            test(~name="node - data") @@
+                            test(~name="node - data", _) @@
                             (
                               t => {
                                 {
                                   let element = data(~value="foo", [||]);
 
-                                  t |> T.equal(tag_name(element), "DATA");
+                                  t |> T.equal(tag_name(element), "DATA", _);
                                   t
-                                  |> T.equal(Html_Node.show(element)) @@
-                                  "<data value=\"foo\"></data>";
+                                  |> T.equal(
+                                       Html_Node.show(element),
+                                       "<data value=\"foo\"></data>",
+                                       _,
+                                     );
                                   t |> T.end_;
                                 };
 
-                                test(~name="node - del") @@
+                                test(~name="node - del", _) @@
                                 (
                                   t => {
                                     {
@@ -190,16 +217,20 @@ test(~name="node - a") @@
                                           [||],
                                         );
 
-                                      t |> T.equal(tag_name(element), "DEL");
                                       t
-                                      |> T.equal(Html_Node.show(element)) @@
-                                      "<del cite=\"foo\" datetime=\""
-                                      ++ Js.Date.toISOString(date)
-                                      ++ "\"></del>";
+                                      |> T.equal(tag_name(element), "DEL", _);
+                                      t
+                                      |> T.equal(
+                                           Html_Node.show(element),
+                                           "<del cite=\"foo\" datetime=\""
+                                           ++ Js.Date.toISOString(date)
+                                           ++ "\"></del>",
+                                           _,
+                                         );
                                       t |> T.end_;
                                     };
 
-                                    test(~name="node - details") @@
+                                    test(~name="node - details", _) @@
                                     (
                                       t => {
                                         {
@@ -210,16 +241,18 @@ test(~name="node - a") @@
                                           |> T.equal(
                                                tag_name(element),
                                                "DETAILS",
+                                               _,
                                              );
                                           t
                                           |> T.equal(
                                                Html_Node.show(element),
-                                             ) @@
-                                          "<details open=\"\"></details>";
+                                               "<details open=\"\"></details>",
+                                               _,
+                                             );
                                           t |> T.end_;
                                         };
 
-                                        test(~name="node - dialog") @@
+                                        test(~name="node - dialog", _) @@
                                         (
                                           t => {
                                             {
@@ -230,16 +263,18 @@ test(~name="node - a") @@
                                               |> T.equal(
                                                    tag_name(element),
                                                    "DIALOG",
+                                                   _,
                                                  );
                                               t
                                               |> T.equal(
                                                    Html_Node.show(element),
-                                                 ) @@
-                                              "<dialog open=\"\"></dialog>";
+                                                   "<dialog open=\"\"></dialog>",
+                                                   _,
+                                                 );
                                               t |> T.end_;
                                             };
 
-                                            test(~name="node - fieldset") @@
+                                            test(~name="node - fieldset", _) @@
                                             (
                                               t => {
                                                 {
@@ -255,18 +290,21 @@ test(~name="node - a") @@
                                                   |> T.equal(
                                                        tag_name(element),
                                                        "FIELDSET",
+                                                       _,
                                                      );
                                                   t
                                                   |> T.equal(
                                                        Html_Node.show(
                                                          element,
                                                        ),
-                                                     ) @@
-                                                  "<fieldset disabled=\"\" form=\"foo\" name=\"bar\"></fieldset>";
+                                                       //  ) @@
+                                                       "<fieldset disabled=\"\" form=\"foo\" name=\"bar\"></fieldset>",
+                                                       _,
+                                                     );
                                                   t |> T.end_;
                                                 };
 
-                                                test(~name="node - form") @@
+                                                test(~name="node - form", _) @@
                                                 (
                                                   t => {
                                                     {
@@ -288,20 +326,25 @@ test(~name="node - a") @@
                                                       |> T.equal(
                                                            tag_name(element),
                                                            "FORM",
+                                                           _,
                                                          );
                                                       t
                                                       |> T.equal(
                                                            Html_Node.show(
                                                              element,
                                                            ),
-                                                         ) @@
-                                                      "<form accept-charset=\"utf-8\" action=\"foo/\" autocomplete=\"off\" "
-                                                      ++ "enctype=\"x_www_form_urlencoded\" method=\"post\" name=\"foo\" "
-                                                      ++ "novalidate=\"\" target=\"_blank\"></form>";
+                                                           "<form accept-charset=\"utf-8\" action=\"foo/\" autocomplete=\"off\" "
+                                                           ++ "enctype=\"x_www_form_urlencoded\" method=\"post\" name=\"foo\" "
+                                                           ++ "novalidate=\"\" target=\"_blank\"></form>",
+                                                           _,
+                                                         );
                                                       t |> T.end_;
                                                     };
 
-                                                    test(~name="node - html") @@
+                                                    test(
+                                                      ~name="node - html",
+                                                      _,
+                                                    ) @@
                                                     (
                                                       t => {
                                                         {
@@ -317,20 +360,23 @@ test(~name="node - a") @@
                                                                  element,
                                                                ),
                                                                "HTML",
+                                                               _,
                                                              );
                                                           t
                                                           |> T.equal(
                                                                Html_Node.show(
                                                                  element,
                                                                ),
-                                                             ) @@
-                                                          "<html manifest=\"foo\"></html>";
+                                                               "<html manifest=\"foo\"></html>",
+                                                               _,
+                                                             );
                                                           t |> T.end_;
                                                         };
 
                                                         test(
                                                           ~name=
                                                             "node - iframe",
+                                                          _,
                                                         ) @@
                                                         (
                                                           t => {
@@ -359,22 +405,26 @@ test(~name="node - a") @@
                                                                     element,
                                                                    ),
                                                                    "IFRAME",
+                                                                   _,
                                                                  );
                                                               t
                                                               |> T.equal(
                                                                    Html_Node.show(
                                                                     element,
                                                                    ),
-                                                                 ) @@
-                                                              "<iframe src=\"foo\" srcdoc=\"bar\" name=\"baz\" sandbox=\"allow-forms\" "
-                                                              ++ "allow=\"qux\" allowfullscreen=\"\" allowpaymentrequest=\"\" width=\"800\" "
-                                                              ++ "height=\"600\" referrerpolicy=\"no-referrer\"></iframe>";
+                                                                   "<iframe src=\"foo\" srcdoc=\"bar\" name=\"baz\" sandbox=\"allow-forms\" "
+                                                                   ++ "allow=\"qux\" allowfullscreen=\"\" allowpaymentrequest=\"\" width=\"800\" "
+                                                                   ++ "height=\"600\" referrerpolicy=\"no-referrer\"></iframe>",
+                                                                   _,
+                                                                 );
+
                                                               t |> T.end_;
                                                             };
 
                                                             test(
                                                               ~name=
                                                                 "node - img",
+                                                              _,
                                                             ) @@
                                                             (
                                                               t => {
@@ -406,22 +456,27 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "IMG",
+                                                                    _,
                                                                   );
                                                                   t
-                                                                  |> T.equal(
+                                                                  |>
+                                                                  T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                  "<img alt=\"foo\" src=\"bar\" srcset=\"baz\" sizes=\"norf\" "
-                                                                  ++ "crossorigin=\"anonymous\" usemap=\"qux\" ismap=\"\" width=\"800\" "
-                                                                  ++ "height=\"600\" referrerpolicy=\"no-referrer\" decoding=\"sync\">";
+                                                                    "<img alt=\"foo\" src=\"bar\" srcset=\"baz\" sizes=\"norf\" "
+                                                                    ++ "crossorigin=\"anonymous\" usemap=\"qux\" ismap=\"\" width=\"800\" "
+                                                                    ++ "height=\"600\" referrerpolicy=\"no-referrer\" decoding=\"sync\">",
+                                                                    _,
+                                                                  );
+
                                                                   t |> T.end_;
                                                                 };
 
                                                                 test(
                                                                   ~name=
                                                                     "node - input",
+                                                                  _,
                                                                 ) @@
                                                                 (
                                                                   t => {
@@ -483,26 +538,30 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "INPUT",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<input alt=\"foo\" autocomplete=\"email\" autofocus=\"\" checked=\"\" "
                                                                     ++ "dirname=\"ltr\" disabled=\"\" form=\"foo\" formaction=\"bar\" "
                                                                     ++ "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "
                                                                     ++ "formnovalidate=\"\" formtarget=\"_blank\" height=\"600\" list=\"baz\" "
                                                                     ++ "max=\"100\" maxlength=\"100\" min=\"0\" minlength=\"0\" multiple=\"\" "
                                                                     ++ "name=\"qux\" pattern=\"[0-9]*\" readonly=\"\" required=\"\" size=\"200\" "
-                                                                    ++ "src=\"worble\" step=\"any\" type=\"text\" width=\"800\">";
+                                                                    ++ "src=\"worble\" step=\"any\" type=\"text\" width=\"800\">",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - ins",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -524,25 +583,29 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "INS",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<ins cite=\"foo\" datetime=\""
                                                                     ++
                                                                     Js.Date.toISOString(
                                                                     date,
                                                                     )
-                                                                    ++ "\"></ins>";
+                                                                    ++ "\"></ins>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - label",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -561,20 +624,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "LABEL",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<label for=\"foo\"></label>";
+                                                                    "<label for=\"foo\"></label>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - link",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -601,27 +668,33 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "LINK",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<link href=\"foobar.com\" rel=\"nofollow\">";
+                                                                    "<link href=\"foobar.com\" rel=\"nofollow\">",
+                                                                    _,
+                                                                    );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element2,
                                                                     ),
-                                                                    ) @@
-                                                                    "<link href=\"foobar.com\" rel=\"stylesheet\">";
+                                                                    "<link href=\"foobar.com\" rel=\"stylesheet\">",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - meta",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -645,21 +718,25 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "META",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<meta name=\"foo\" http-equiv=\"set-cookie\" content=\"bar\" "
-                                                                    ++ "charset=\"baz\">";
+                                                                    ++ "charset=\"baz\">",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - meter",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -681,20 +758,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "METER",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<meter value=\"10\" min=\"0\" max=\"100\" low=\"5\" high=\"80\"></meter>";
+                                                                    "<meter value=\"10\" min=\"0\" max=\"100\" low=\"5\" high=\"80\"></meter>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - object",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -726,21 +807,26 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "OBJECT",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<object data=\"foo\" type=\"bar\" typemustmatch=\"\" name=\"baz\" "
-                                                                    ++ "usemap=\"qux\" form=\"norf\" width=\"800\" height=\"600\"></object>";
+                                                                    ++ "usemap=\"qux\" form=\"norf\" width=\"800\" height=\"600\"></object>",
+                                                                    _,
+                                                                    );
+
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - ol",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -761,20 +847,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "OL",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<ol reversed=\"\" start=\"3\" type=\"upper-roman\"></ol>";
+                                                                    "<ol reversed=\"\" start=\"3\" type=\"upper-roman\"></ol>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - optgroup",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -794,21 +884,26 @@ test(~name="node - a") @@
                                                                     tag_name(
                                                                     element,
                                                                     ),
-                                                                    "OPTGROUP",
+                                                                    "OPTGROUP
+                                                                    ",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<optgroup disabled=\"\" label=\"foo\"></optgroup>";
+                                                                    "<optgroup disabled=\"\" label=\"foo\"></optgroup>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - option",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -833,20 +928,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "OPTION",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<option disabled=\"\" label=\"foo\" selected=\"\" value=\"foo\"></option>";
+                                                                    "<option disabled=\"\" label=\"foo\" selected=\"\" value=\"foo\"></option>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - output",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -869,20 +968,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "OUTPUT",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<output for=\"foo\" form=\"bar\" name=\"baz\"></output>";
+                                                                    "<output for=\"foo\" form=\"bar\" name=\"baz\"></output>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - param",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -903,20 +1006,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "PARAM",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<param name=\"foo\" value=\"bar\">";
+                                                                    "<param name=\"foo\" value=\"bar\">",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - progress",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -935,20 +1042,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "PROGRESS",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<progress value=\"10\" max=\"100\"></progress>";
+                                                                    "<progress value=\"10\" max=\"100\"></progress>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - q",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -967,20 +1078,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "Q",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<q cite=\"foo\"></q>";
+                                                                    "<q cite=\"foo\"></q>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - script",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1012,16 +1127,19 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "SCRIPT",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<script src=\"foo\" type=\"bar\" nomodule=\"\" async=\"\" defer=\"\" "
                                                                     ++ "crossorigin=\"anonymous\" integrity=\"baz\" "
-                                                                    ++ "referrerpolicy=\"no-referrer\"></script>";
+                                                                    ++ "referrerpolicy=\"no-referrer\"></script>",
+                                                                    _,
+                                                                    );
                                                                     t
                                                                     |>
                                                                     T.equal(
@@ -1029,6 +1147,7 @@ test(~name="node - a") @@
                                                                     element',
                                                                     ),
                                                                     "<script>var foo = 123</script>",
+                                                                    _,
                                                                     );
                                                                     t |> T.end_;
                                                                     };
@@ -1036,6 +1155,7 @@ test(~name="node - a") @@
                                                                     test(
                                                                     ~name=
                                                                     "node - select",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1066,21 +1186,26 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "SELECT",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<select autocomplete=\"email\" autofocus=\"\" disabled=\"\" form=\"foo\" "
-                                                                    ++ "multiple=\"\" name=\"bar\" required=\"\" size=\"10\"></select>";
+                                                                    ++ "multiple=\"\" name=\"bar\" required=\"\" size=\"10\"></select>",
+                                                                    _,
+                                                                    );
+
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - slot",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1099,20 +1224,25 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "SLOT",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<slot name=\"foo\"></slot>";
+                                                                    "<slot name=\"foo\"></slot>",
+                                                                    _,
+                                                                    );
+
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1135,20 +1265,25 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "STYLE",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<style media=\"@media (max-width: 200px)\">.foo { color: red; }</style>";
+                                                                    "<style media=\"@media (max-width: 200px)\">.foo { color: red; }</style>",
+                                                                    _,
+                                                                    );
+
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - td",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1169,20 +1304,24 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "TD",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
-                                                                    "<td colspan=\"3\" rowspan=\"2\" headers=\"foo\"></td>";
+                                                                    "<td colspan=\"3\" rowspan=\"2\" headers=\"foo\"></td>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - textarea",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1220,24 +1359,29 @@ test(~name="node - a") @@
                                                                     tag_name(
                                                                     element,
                                                                     ),
-                                                                    "TEXTAREA",
+                                                                    "TEXTAREA
+                                                                    ",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<textarea autocomplete=\"email\" autofocus=\"\" dirname=\"rtl\" "
                                                                     ++ "disabled=\"\" form=\"foo\" maxlength=\"100\" minlength=\"0\" name=\"bar\" "
                                                                     ++ "placeholder=\"baz\" readonly=\"\" required=\"\" rows=\"4\" wrap=\"soft\">"
-                                                                    ++ "</textarea>";
+                                                                    ++ "</textarea>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - th",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1261,21 +1405,25 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "TH",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<th colspan=\"3\" rowspan=\"2\" headers=\"foo\" scope=\"row\" "
-                                                                    ++ "abbr=\"baz\"></th>";
+                                                                    ++ "abbr=\"baz\"></th>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - time",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1296,25 +1444,29 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "TIME",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<time datetime=\""
                                                                     ++
                                                                     Js.Date.toISOString(
                                                                     date,
                                                                     )
-                                                                    ++ "\"></time>";
+                                                                    ++ "\"></time>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - track",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1339,21 +1491,25 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "TRACK",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<track kind=\"subtitles\" src=\"foo\" srclang=\"bar\" label=\"baz\" "
-                                                                    ++ "default=\"\">";
+                                                                    ++ "default=\"\">",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - video",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1386,22 +1542,26 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "VIDEO",
+                                                                    _,
                                                                     );
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<video src=\"foo\" crossorigin=\"anonymous\" poster=\"bar\" "
                                                                     ++ "preload=\"metadata\" autoplay=\"\" playsinline=\"\" loop=\"\" muted=\"\" "
-                                                                    ++ "controls=\"\" width=\"800\" height=\"600\"></video>";
+                                                                    ++ "controls=\"\" width=\"800\" height=\"600\"></video>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - global attributes",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1472,24 +1632,27 @@ test(~name="node - a") @@
                                                                     );
 
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<span accesskey=\"foo\" autocapitalize=\"on\" class=\"bar baz\" "
                                                                     ++ "contenteditable=\"\" data-a=\"norf\" data-b=\"worble\" dir=\"ltr\" "
                                                                     ++ "draggable=\"\" enterkeyhint=\"search\" hidden=\"\" id=\"fizz\" "
                                                                     ++ "inputmode=\"text\" is=\"fuzz\" itemid=\"wizzle\" itemprop=\"wuzzle\" "
                                                                     ++ "itemref=\"wazzle\" itemscope=\"\" itemtype=\"foos\" lang=\"bars\" "
                                                                     ++ "nonce=\"bazs\" slot=\"quxs\" spellcheck=\"norfs\" tabindex=\"-1\" "
-                                                                    ++ "title=\"hello\" translate=\"yes\"></span>";
+                                                                    ++ "title=\"hello\" translate=\"yes\"></span>",
+                                                                    _,
+                                                                    );
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - global aria attributes",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1546,11 +1709,11 @@ test(~name="node - a") @@
                                                                     );
 
                                                                     t
-                                                                    |> T.equal(
+                                                                    |>
+                                                                    T.equal(
                                                                     Html_Node.show(
                                                                     element,
                                                                     ),
-                                                                    ) @@
                                                                     "<span aria-atomic=\"a\" aria-busy=\"\" aria-controls=\"c\" "
                                                                     ++ "aria-current=\"date\" aria-describedby=\"d\" aria-details=\"e\" "
                                                                     ++ "aria-disabled=\"\" aria-dropeffect=\"copy move\" aria-errormessage=\"f\" "
@@ -1558,13 +1721,17 @@ test(~name="node - a") @@
                                                                     ++ "aria-hidden=\"\" aria-invalid=\"grammar\" aria-keyshortcuts=\"h\" "
                                                                     ++ "aria-label=\"i\" aria-labelledby=\"j\" aria-live=\"polite\" "
                                                                     ++ "aria-owns=\"k\" aria-relevant=\"all text\" "
-                                                                    ++ "aria-roledescription=\"l\"></span>";
+                                                                    ++ "aria-roledescription=\"l\"></span>",
+                                                                    _,
+                                                                    );
+
                                                                     t |> T.end_;
                                                                     };
 
                                                                     test(
                                                                     ~name=
                                                                     "node - style",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1588,6 +1755,7 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "<span style=\"color: red; font-size: 12px;\"></span>",
+                                                                    _,
                                                                     );
                                                                     t |> T.end_;
                                                                     };
@@ -1595,16 +1763,18 @@ test(~name="node - a") @@
                                                                     test(
                                                                     ~name=
                                                                     "node - css module",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
                                                                     {
                                                                     let title =
-                                                                    Css_Module.make @@
+                                                                    Css_Module.make(
                                                                     Css_Style.inline(
                                                                     ~vertical_align=`initial,
                                                                     ~color=`black,
                                                                     (),
+                                                                    ),
                                                                     );
 
                                                                     let element =
@@ -1620,6 +1790,7 @@ test(~name="node - a") @@
                                                                     element,
                                                                     ),
                                                                     "<span class=\"m72adb46b0467f9510ed02cc8fe77c7dd\"></span>",
+                                                                    _,
                                                                     );
                                                                     t |> T.end_;
                                                                     };
@@ -1627,6 +1798,7 @@ test(~name="node - a") @@
                                                                     test(
                                                                     ~name=
                                                                     "node - text node",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1639,6 +1811,7 @@ test(~name="node - a") @@
                                                                     "foo",
                                                                     ),
                                                                     "foo",
+                                                                    _,
                                                                     );
                                                                     t |> T.end_;
                                                                     };
@@ -1646,6 +1819,7 @@ test(~name="node - a") @@
                                                                     test(
                                                                     ~name=
                                                                     "node - fragment node",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1671,6 +1845,7 @@ test(~name="node - a") @@
                                                                     node,
                                                                     ),
                                                                     "<span>foo</span>\n<strong>bar</strong>",
+                                                                    _,
                                                                     );
                                                                     t |> T.end_;
                                                                     };
@@ -1678,6 +1853,7 @@ test(~name="node - a") @@
                                                                     test(
                                                                     ~name=
                                                                     "node - show_doc",
+                                                                    _,
                                                                     ) @@
                                                                     (
                                                                     t => {
@@ -1697,6 +1873,7 @@ test(~name="node - a") @@
                                                                     doc,
                                                                     ),
                                                                     "<!DOCTYPE html>\n<html><body>hello world</body></html>",
+                                                                    _,
                                                                     );
                                                                     t |> T.end_;
                                                                     }
