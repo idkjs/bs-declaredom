@@ -30,3 +30,4 @@ node_modules
 dist/
 Session.vim
 TODO.org
+_esy/default
