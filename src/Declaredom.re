@@ -1,5 +1,3 @@
-    open Webapi.Dom
-
 type property;
 type args = {
   attributes: Js.Dict.t(property),

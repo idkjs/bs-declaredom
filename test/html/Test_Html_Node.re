@@ -884,8 +884,7 @@ test(~name="node - a", _) @@
                                                                     tag_name(
                                                                     element,
                                                                     ),
-                                                                    "OPTGROUP
-                                                                    ",
+                                                                    "OPTGROUP",
                                                                     _,
                                                                     );
                                                                     t
@@ -1359,8 +1358,7 @@ test(~name="node - a", _) @@
                                                                     tag_name(
                                                                     element,
                                                                     ),
-                                                                    "TEXTAREA
-                                                                    ",
+                                                                    "TEXTAREA",
                                                                     _,
                                                                     );
                                                                     t
